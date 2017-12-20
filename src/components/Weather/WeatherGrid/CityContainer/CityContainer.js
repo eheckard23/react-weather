@@ -14,6 +14,7 @@ const CityContainer = ({ city, weather }) => (
 				grid-row-end: 3;
 				background-color: #383F51;
 				border-radius: 8px;
+				padding-left: 5%;
 			}
 		`} />
 		{
