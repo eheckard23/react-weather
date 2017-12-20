@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import City from './City/City';
+import WeatherGrid from './WeatherGrid/WeatherGrid';
 
 export default class Weather extends Component {
 
@@ -51,10 +51,7 @@ export default class Weather extends Component {
 					/>
 					<button type='submit'>Search</button>
 				</form>
-				{
-					this.state.isWeatherSet &&
-						<City city={this.state.query} {...this.state.weather} />
-				}
+					<WeatherGrid city={this.state.query} weather={this.state.weather} />
 			</div>
 			
 		)
