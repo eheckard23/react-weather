@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import City from './City/City';
+import _JSXStyle from 'styled-jsx/style';
+
+import WeatherGrid from './WeatherGrid/WeatherGrid';
 
 export default class Weather extends Component {
 
@@ -38,7 +40,7 @@ export default class Weather extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='weather'>
 				<h1>Weather</h1>
 				<form 
 					ref={form => this.weatherForm = form}
@@ -49,12 +51,34 @@ export default class Weather extends Component {
 						ref={input => this.query = input}
 						placeholder='Orlando, Dallas...'
 					/>
-					<button type='submit'>Search</button>
+					<button id='weather-form-btn' type='submit'>Search</button>
 				</form>
-				{
-					this.state.isWeatherSet &&
-						<City city={this.state.query} {...this.state.weather} />
-				}
+					<WeatherGrid city={this.state.query} weather={this.state.weather} />
+					<_JSXStyle styleId='weather' css={`
+						.weather form {
+							margin-left: 10%;
+							padding-left: 5%;
+						}
+						input {
+							background: none;
+							border: none;
+							font-size: 24px;
+							outline: none;
+							color: white;
+						}
+						input::placeholder {
+							color: white;
+						}
+						#weather-form-btn {
+							padding: 10px 20px;
+							background: none;
+							border: solid 2px #1ECD97;
+							border-radius: 50px;
+							color: #1ECD97; 
+							cursor: pointer;
+							font-size: 24px;
+						}
+					`} />
 			</div>
 			
 		)
