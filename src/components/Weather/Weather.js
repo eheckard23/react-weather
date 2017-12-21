@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import _JSXStyle from 'styled-jsx/style';
+import JSXStyle from 'styled-jsx/style';
 
 import WeatherGrid from './WeatherGrid/WeatherGrid';
 
@@ -11,7 +11,7 @@ export default class Weather extends Component {
 		super();
 
 		this.state = {
-			weatherUrl: 'https://api.openweathermap.org/data/2.5/weather?q=',
+			weatherUrl: 'https://api.openweathermap.org/data/2.5/forecast?q=',
 			appId: ',us&APPID=d1167d6aafdb5e3078094ce40b2b7e68',
 			query: '',
 			weather: {},
@@ -26,6 +26,7 @@ export default class Weather extends Component {
 		const queryString = `${this.state.weatherUrl}${this.query.value}${this.state.appId}`;
 		axios.get(queryString)
 			.then(resp => {
+				// console.log(resp.data);
 				return this.setState({ 
 					query: this.query.value, 
 					weather: resp.data, 
@@ -34,9 +35,9 @@ export default class Weather extends Component {
 			});
 	}
 
-	componentWillUpdate(nextProps, nextState) {
-		console.log(nextState);
-	}
+	// componentWillUpdate(nextProps, nextState) {
+	// 	console.log(nextState);
+	// }
 
 	render() {
 		return (
@@ -53,8 +54,8 @@ export default class Weather extends Component {
 					/>
 					<button id='weather-form-btn' type='submit'>Search</button>
 				</form>
-					<WeatherGrid city={this.state.query} weather={this.state.weather} />
-					<_JSXStyle styleId='weather' css={`
+					<WeatherGrid city={this.state.weather.city} weather={this.state.weather} />
+					<JSXStyle styleId='weather' css={`
 						.weather form {
 							margin-left: 10%;
 							padding-left: 5%;
