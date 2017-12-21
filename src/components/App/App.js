@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import _JSXStyle from 'styled-jsx/style';
+import JSXStyle from 'styled-jsx/style';
 
 import Header from '../Header/Header';
 import Routes from '../Routes/Routes';
@@ -13,7 +13,7 @@ export default class App extends Component {
         <Background />
         <Header />
         <Routes />
-        <_JSXStyle styleId='app' css={`
+        <JSXStyle styleId='app' css={`
 			.App {
 				font-family: arial;
 				color: white;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { LinearGradient } from '@vx/gradient';
-import _JSXStyle from 'styled-jsx/style';
+import JSXStyle from 'styled-jsx/style';
 import { withScreenSize } from '@vx/responsive';
 
 const Background = ({ screenWidth, screenHeight }) => (
@@ -14,7 +14,7 @@ const Background = ({ screenWidth, screenHeight }) => (
 				vertical={false}
 			/>
 			<rect width={screenWidth} height={screenHeight} className='background-rect' fill="url('#gradient')" />
-			<_JSXStyle styleId='background' css={`
+			<JSXStyle styleId='background' css={`
 				.background {
 					position: absolute;
 					top: 0;

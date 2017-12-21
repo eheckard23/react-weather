@@ -1,12 +1,12 @@
 import React from 'react';
 
-import _JSXStyle from 'styled-jsx/style';
+import JSXStyle from 'styled-jsx/style';
 
 import CityContainer from './CityContainer/CityContainer';
 
 const WeatherGrid = ({ city, weather }) => (
 	<section className='weather-grid'>
-		<_JSXStyle id='weather-grid' css={`
+		<JSXStyle id='weather-grid' css={`
 			.weather-grid {
 				display: grid;
 				grid-template-columns: 10% auto 10%;
